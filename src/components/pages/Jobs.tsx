@@ -20,7 +20,7 @@ export default function Jobs() {
 
   return (
     <div className={styles.jobs}>
-      <h2>Jobs</h2>
+      <h2 className={styles.title}>Jobs</h2>
       <ul>
         {jobs.map((job) => (
           <li key={job.jobId}>
