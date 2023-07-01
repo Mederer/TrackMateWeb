@@ -1,13 +1,28 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useGetJobsQuery } from "../../services/trackmate.ts";
 import styles from "./Dashboard.module.scss";
+import { useMemo } from "react";
 
 export default function Dashboard() {
   const { isAuthenticated, user } = useAuth0();
   const { data: jobs, isLoading, isError } = useGetJobsQuery();
 
+  const jobsWaitingCount = useMemo(
+    () => jobs?.filter((job) => job.jobStatus === "WAITING").length ?? 0,
+    [jobs]
+  );
+
+  const jobsActiveCount = useMemo(
+    () => jobs?.filter((job) => job.jobStatus === "ACTIVE").length ?? 0,
+    [jobs]
+  );
+
   if (!isAuthenticated || !user) {
     return <div>Unauthorized</div>;
+  }
+
+  if (isLoading || !jobs) {
+    return <div>Loading...</div>;
   }
 
   if (isError) {
@@ -16,14 +31,18 @@ export default function Dashboard() {
     );
   }
 
-  if (isLoading || !jobs) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className={styles.dashboard}>
       <h2 className={styles.title}>Dashboard</h2>
       <div>There are currently {jobs.length} jobs.</div>
+      <div>
+        {jobsWaitingCount} {jobsWaitingCount > 1 ? "jobs" : "job"} in 'WAITING'
+        status
+      </div>
+      <div>
+        {jobsActiveCount} {jobsActiveCount > 1 ? "jobs" : "job"} in 'ACTIVE'
+        status
+      </div>
     </div>
   );
 }
