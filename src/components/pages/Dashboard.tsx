@@ -36,13 +36,17 @@ export default function Dashboard() {
       <h2 className={styles.title}>Dashboard</h2>
       <div>There are currently {jobs.length} jobs.</div>
       <div>
-        {jobsWaitingCount} {jobsWaitingCount > 1 ? "jobs" : "job"} in 'WAITING'
+        {jobsWaitingCount} {pluralizeJobString(jobsWaitingCount)} in 'WAITING'
         status
       </div>
       <div>
-        {jobsActiveCount} {jobsActiveCount > 1 ? "jobs" : "job"} in 'ACTIVE'
+        {jobsActiveCount} {pluralizeJobString(jobsActiveCount)} in 'ACTIVE'
         status
       </div>
     </div>
   );
+}
+
+function pluralizeJobString(count: number) {
+  return count > 1 ? "jobs" : "job";
 }
