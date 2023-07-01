@@ -1,6 +1,7 @@
 import { useGetJobsQuery } from "../../services/trackmate.ts";
 import { useAuth0 } from "@auth0/auth0-react";
 import styles from "./Jobs.module.scss";
+import JobCard from "./JobCard.tsx";
 
 export default function Jobs() {
   const { data: jobs, isLoading, isError } = useGetJobsQuery();
@@ -21,15 +22,9 @@ export default function Jobs() {
   return (
     <div className={styles.jobs}>
       <h2 className={styles.title}>Jobs</h2>
-      <ul>
-        {jobs.map((job) => (
-          <li key={job.jobId}>
-            Name: {job.jobName} <br />
-            Description: {job.jobDescription} <br />
-            Status: {job.jobStatus} <br />
-          </li>
-        ))}
-      </ul>
+      {jobs.map((job) => (
+        <JobCard job={job} />
+      ))}
     </div>
   );
 }

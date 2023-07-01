@@ -1,0 +1,22 @@
+.jobs {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 600px) {
+  .jobs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) {
+  .jobs {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
