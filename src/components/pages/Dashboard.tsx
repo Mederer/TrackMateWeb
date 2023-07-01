@@ -27,7 +27,7 @@ export default function Dashboard() {
 
   if (isError) {
     return (
-      <div>An error occured. Try refreshing the page or try again later.</div>
+      <div>An error occurred. Try refreshing the page or try again later.</div>
     );
   }
 
