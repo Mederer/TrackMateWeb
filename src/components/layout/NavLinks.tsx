@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
 export default function NavLinks() {
   const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
@@ -7,9 +8,6 @@ export default function NavLinks() {
     <ul>
       <li>
         <a href="#">Home</a>
-      </li>
-      <li>
-        <a href="#">About</a>
       </li>
       <li>
         <a href="#">Contact</a>
@@ -22,8 +20,14 @@ export default function NavLinks() {
 
   const loggedOutLinks = (
     <ul>
+      <li>
+        <Link to="/">Welcome</Link>
+      </li>
       <li onClick={() => loginWithRedirect()}>
-        <a href="#">Login / Signup</a>
+        <Link to="/#">Login / Signup</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
       </li>
     </ul>
   );

@@ -2,13 +2,23 @@ import Dashboard from "./components/pages/Dashboard.tsx";
 import Layout from "./components/layout/Layout.tsx";
 import { useAuth0 } from "@auth0/auth0-react";
 import Welcome from "./components/pages/Welcome.tsx";
+import { Route, Routes } from "react-router-dom";
+import About from "./components/pages/About.tsx";
 
 function App() {
   const { isAuthenticated } = useAuth0();
 
   return (
     <>
-      <Layout>{isAuthenticated ? <Dashboard /> : <Welcome />}</Layout>
+      <Layout>
+        <Routes>
+          <Route
+            path="/"
+            element={isAuthenticated ? <Dashboard /> : <Welcome />}
+          />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Layout>
     </>
   );
 }

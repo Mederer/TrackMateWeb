@@ -1,7 +1,7 @@
 import styles from "./Layout.module.scss";
 
 import hamburgerMenuIcon from "../../assets/hamburger-icon.png";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavLinks from "./NavLinks.tsx";
 
 interface LayoutProps {
@@ -10,6 +10,10 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, []);
 
   return (
     <>
