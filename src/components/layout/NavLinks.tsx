@@ -23,10 +23,7 @@ export default function NavLinks() {
   const loggedOutLinks = (
     <ul>
       <li onClick={() => loginWithRedirect()}>
-        <a href="#">Login</a>
-      </li>
-      <li>
-        <a href="#">Sign Up</a>
+        <a href="#">Login / Signup</a>
       </li>
     </ul>
   );
