@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Welcome from "./components/pages/Welcome.tsx";
 import { Route, Routes } from "react-router-dom";
 import About from "./components/pages/About.tsx";
+import Jobs from "./components/pages/Jobs.tsx";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -17,6 +18,7 @@ function App() {
             element={isAuthenticated ? <Dashboard /> : <Welcome />}
           />
           <Route path="/about" element={<About />} />
+          <Route path="/jobs" element={<Jobs />} />
         </Routes>
       </Layout>
     </>

@@ -21,14 +21,14 @@ export default function Dashboard() {
     return <div>Unauthorized</div>;
   }
 
-  if (isLoading || !jobs) {
-    return <div>Loading...</div>;
-  }
-
   if (isError) {
     return (
       <div>An error occurred. Try refreshing the page or try again later.</div>
     );
+  }
+
+  if (isLoading || !jobs) {
+    return <div>Loading...</div>;
   }
 
   return (

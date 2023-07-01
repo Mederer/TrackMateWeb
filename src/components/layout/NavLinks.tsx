@@ -7,10 +7,10 @@ export default function NavLinks() {
   const loggedInLinks = (
     <ul>
       <li>
-        <a href="#">Home</a>
+        <Link to="/">Dashboard</Link>
       </li>
       <li>
-        <a href="#">Contact</a>
+        <Link to="/jobs">Jobs</Link>
       </li>
       <li onClick={() => logout()}>
         <a href="#">Logout</a>
