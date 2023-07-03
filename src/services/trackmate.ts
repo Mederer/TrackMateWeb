@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { SERVER_URL } from "../constants.ts";
-import { Job } from "../types";
+import { CreateJobRequest, Job } from "../types";
 
 export const trackmateApi = createApi({
   reducerPath: "trackmateApi",
@@ -14,7 +14,15 @@ export const trackmateApi = createApi({
     getJob: build.query<Job, number>({
       query: (jobId) => `jobs/${jobId}`,
     }),
+    createJob: build.mutation<void, CreateJobRequest>({
+      query: (job) => ({
+        url: "jobs",
+        method: "post",
+        body: job,
+      }),
+    }),
   }),
 });
 
-export const { useGetJobsQuery, useGetJobQuery } = trackmateApi;
+export const { useGetJobsQuery, useGetJobQuery, useCreateJobMutation } =
+  trackmateApi;

@@ -12,6 +12,9 @@ export default function NavLinks() {
       <li>
         <Link to="/jobs">Jobs</Link>
       </li>
+      <li>
+        <Link to="/jobs/create">Create Job</Link>
+      </li>
       <li onClick={() => logout()}>
         <a href="#">Logout</a>
       </li>

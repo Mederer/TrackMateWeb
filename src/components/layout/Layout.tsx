@@ -36,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
           <NavLinks />
         </nav>
       </header>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
       <footer>footer</footer>
     </>
   );

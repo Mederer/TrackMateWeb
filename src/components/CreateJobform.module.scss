@@ -1,0 +1,30 @@
+@use "../styles/vars";
+
+$color-ok: #00f100;
+$color-error: orangered;
+
+.formGroup {
+  display: flex;
+  justify-content: space-between;
+  font-size: vars.$text-medium;
+  margin-bottom: 1rem;
+
+  input {
+    border: none;
+    padding: 1rem;
+    border-bottom: 5px solid transparent;
+    outline: none;
+
+    &:focus {
+      border-bottom: 5px solid $color-ok;
+    }
+
+    &.error {
+      border-bottom: 5px solid $color-error;
+    }
+  }
+}
+
+.form {
+  margin-top: 1rem;
+}

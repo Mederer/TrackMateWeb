@@ -1,3 +1,5 @@
+@use "../../styles/vars";
+
 .jobs {
   display: grid;
   grid-template-columns: 1fr;
@@ -5,7 +7,7 @@
 
 .title {
   text-align: center;
-  font-size: 2rem;
+  font-size: vars.$text-large;
   grid-column: 1 / -1;
 }
 

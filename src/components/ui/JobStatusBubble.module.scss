@@ -1,0 +1,20 @@
+@mixin bubble {
+  width: 8rem;
+  height: 3rem;
+  border-radius: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.waiting {
+  @include bubble;
+  color: white;
+  background-color: blue;
+}
+
+.active {
+  @include bubble;
+  color: wheat;
+  background-color: orangered;
+}

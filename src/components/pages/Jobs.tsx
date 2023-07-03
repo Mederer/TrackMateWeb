@@ -1,7 +1,7 @@
 import { useGetJobsQuery } from "../../services/trackmate.ts";
 import { useAuth0 } from "@auth0/auth0-react";
 import styles from "./Jobs.module.scss";
-import JobCard from "./JobCard.tsx";
+import JobCard from "../JobCard.tsx";
 
 export default function Jobs() {
   const { data: jobs, isLoading, isError } = useGetJobsQuery();

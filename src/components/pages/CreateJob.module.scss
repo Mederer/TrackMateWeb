@@ -1,0 +1,8 @@
+@use "../../styles/vars";
+
+.title {
+  font-size: vars.$text-large;
+  text-align: center;
+  margin: 0;
+  padding-top: 1rem;
+}
